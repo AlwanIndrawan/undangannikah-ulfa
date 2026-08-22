@@ -9,7 +9,6 @@ import { MUSIC } from '../config';
  */
 function MusicPlayer({ triggerPlay = false }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress,  setProgress]  = useState(0);
   const [ended,     setEnded]     = useState(false); // musik sudah habis
   const [toast,     setToast]     = useState('');
   const audioRef = useRef(null);
@@ -32,17 +31,6 @@ function MusicPlayer({ triggerPlay = false }) {
       });
   }, [triggerPlay]);
 
-  /* ── Progress bar ── */
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    const update = () => {
-      if (audio.duration) setProgress((audio.currentTime / audio.duration) * 100);
-    };
-    audio.addEventListener('timeupdate', update);
-    return () => audio.removeEventListener('timeupdate', update);
-  }, []);
-
   /* ── Deteksi musik selesai ── */
   useEffect(() => {
     const audio = audioRef.current;
@@ -50,7 +38,6 @@ function MusicPlayer({ triggerPlay = false }) {
     const onEnded = () => {
       setIsPlaying(false);
       setEnded(true);
-      setProgress(100);
       showToast('Musik selesai 🎵');
     };
     audio.addEventListener('ended', onEnded);
@@ -102,7 +89,6 @@ function MusicPlayer({ triggerPlay = false }) {
         if (ended) {
           audio.currentTime = 0;
           setEnded(false);
-          setProgress(0);
         }
         await audio.play();
         setIsPlaying(true);
@@ -110,18 +96,6 @@ function MusicPlayer({ triggerPlay = false }) {
       }
     } catch {
       showToast('Gagal memutar musik');
-    }
-  };
-
-  const handleProgressClick = (e) => {
-    const audio = audioRef.current;
-    if (!audio || !audio.duration) return;
-    const rect  = e.currentTarget.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
-    audio.currentTime = ratio * audio.duration;
-    // Jika musik sudah habis lalu user klik progress, reset state ended
-    if (ended) {
-      setEnded(false);
     }
   };
 
@@ -151,38 +125,17 @@ function MusicPlayer({ triggerPlay = false }) {
         <source src={MUSIC.src} type="audio/mpeg" />
       </audio>
 
-      {/* ── Tombol musik + progress ── */}
+      {/* ── Tombol musik ── */}
       <div style={{
         position:      'fixed',
-        bottom:        '28px',
+        top:           '50%',
         right:         '24px',
+        transform:     'translateY(-50%)',
         zIndex:        200,
         display:       'flex',
         flexDirection: 'column',
         alignItems:    'center',
-        gap:           '6px',
       }}>
-        {/* Progress bar */}
-        <div
-          style={{
-            width:        '52px',
-            cursor:       'pointer',
-            background:   'rgba(79,100,75,0.2)',
-            borderRadius: '2px',
-            height:       '3px',
-          }}
-          onClick={handleProgressClick}
-        >
-          <div style={{
-            height:       '3px',
-            background:   ended ? 'rgba(79,100,75,0.4)' : 'var(--rose)',
-            borderRadius: '2px',
-            width:        `${progress}%`,
-            transition:   'width 0.5s linear',
-          }} />
-        </div>
-
-        {/* Tombol play/pause/replay */}
         <button
           className="music-btn"
           onClick={togglePlay}

@@ -13,7 +13,6 @@ import RSVPForm          from './components/RSVPForm';
 import GuestBook         from './components/GuestBook';
 import Gallery           from './components/Gallery';
 
-import { FallingPetals } from './components/Decorations';
 import FlowerOrnaments from './components/FlowerOrnaments';
 
 /* Gambar bunga — dipakai untuk divider, header, & footer floral
@@ -24,6 +23,7 @@ import peonySingle     from './assets/peony-single.png';
 import sprigDiagonal   from './assets/sprig-diagonal.png';
 import coverLeft       from './assets/cover-left.png';
 import coverRight      from './assets/cover-right.png';
+import ballaLompoa     from './assets/balla-lompoa.png';
 
 /* ════════════════════════════════════════════════════════════
    TANGGAL DINAMIS — dari config (tanpa hardcode)
@@ -244,7 +244,6 @@ function App() {
   if (!isOpen) {
     return (
       <>
-        <FallingPetals />
         <div className="cover-page">
           <div className="cover-card">
             {/* ── ATAS: eyebrow, monogram, nama mempelai ── */}
@@ -299,8 +298,6 @@ function App() {
      ══════════════════════════════════════════════════════════ */
   return (
     <>
-      <FallingPetals />
-
       {/* ── TOP NAV ── */}
       <nav className="topbar">
         <button className="nav-icon-btn" onClick={() => scrollTo('cover')} aria-label="Beranda">
@@ -336,6 +333,7 @@ function App() {
       {/* ══════════════ HERO ═════════════════════════════════ */}
       <section id="cover" style={{ textAlign: 'center' }}>
         <FlowerOrnaments preset="cover" />
+        {WEDDING.lontara && <p className="cover-lontara">{WEDDING.lontara}</p>}
         <p className="cover-badge">The Wedding of</p>
         <div className="cover-monogram">
           {WEDDING.namasingkat1[0]}<span className="slash">&</span>{WEDDING.namasingkat2[0]}
@@ -344,6 +342,7 @@ function App() {
         <div className="cover-divider" />
         <p className="cover-date">{COVER_DATE}</p>
         <p className="cover-location">{WEDDING.lokasiSingkat}</p>
+        <img className="cover-balla" src={ballaLompoa} alt="" aria-hidden="true" />
         <div className="scroll-cue">
           <div className="scroll-dot" />
           <div className="scroll-dot" />

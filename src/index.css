@@ -8,6 +8,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
+/* Aksara Lontara (Bugis) — bundled lokal karena tidak ada di Google Fonts */
+@font-face {
+  font-family: 'Noto Sans Buginese';
+  src: url('./assets/fonts/NotoSansBuginese-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -159,10 +168,6 @@ body::before {
       0 10px 40px rgba(134,78,90,0.2);
   }
 }
-@keyframes petalFall {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(var(--drift), 108vh) rotate(var(--spin)); }
-}
 
 /* ── Persis dari kode Stitch (Beranda / Kisah Kami) ──
    @keyframes float { 0%{translateY(0)} 50%{translateY(-10px)} 100%{translateY(0)} } */
@@ -178,28 +183,6 @@ body::before {
 .anim-fade-up { animation: fadeUp 0.8s ease both; }
 .anim-fade-in { animation: fadeIn 1s   ease both; }
 .anim-float   { animation: floatY 3s   ease infinite; }
-
-/* ============================================================
-   FALLING PETALS
-   ============================================================ */
-
-.petal-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 40;
-  overflow: hidden;
-}
-
-.petal {
-  position: absolute;
-  top: -40px;
-  will-change: transform, opacity;
-  opacity: 0.85;
-  animation: petalFall linear forwards;
-}
-
-.petal svg { display: block; }
 
 /* ============================================================
    FLOWER ORNAMENTS — hiasan bunga di latar section
@@ -244,6 +227,13 @@ section > *:not(.section-flowers),
   display: block;
   object-fit: contain;
   max-width: none;
+}
+
+/* Badik bertebaran — kumpul di sekitar tengah section.
+   Di layar ponsel diperkecil via properti `scale` (terpisah dari transform
+   rotate inline sehingga tidak saling menimpa). */
+@media (max-width: 600px) {
+  .badik-scatter { scale: 0.75; }
 }
 
 .section-flower-item--float .section-flower-inner,
@@ -410,7 +400,7 @@ section {
   overflow: hidden;
 }
 
-section:nth-child(even) {
+section:nth-of-type(even) {
   background: rgba(232,162,175,0.35);
 }
 
@@ -735,6 +725,15 @@ nav.topbar .nav-links a.active {
   margin-bottom: 18px;
 }
 
+.cover-balla {
+  display: block;
+  width: clamp(200px, 62vw, 320px);
+  height: auto;
+  opacity: 0.45;
+  margin: -6px auto 8px;
+  pointer-events: none;
+}
+
 .cover-to-wrapper {
   margin: 18px 0 22px;
   display: flex;
@@ -792,6 +791,16 @@ nav.topbar .nav-links a.active {
   color: var(--rose);
   text-align: center;
   margin-bottom: 14px;
+}
+
+.cover-lontara {
+  font-family: 'Noto Sans Buginese', var(--font-body);
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  color: var(--deep-rose);
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .scroll-cue {
@@ -1280,14 +1289,14 @@ select option {
    ============================================================ */
 
 .music-btn {
-  width: 48px;
-  height: 48px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 1px solid var(--outline-variant);
   background: rgba(255,255,255,0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  font-size: 18px;
+  font-size: 10px;
   color: var(--primary);
   cursor: pointer;
   transition: background 0.25s, border-color 0.25s, transform 0.2s;
@@ -1395,7 +1404,6 @@ select option {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .petal { display: none; }
   .reveal { transition: none; opacity: 1; transform: none; }
   .cover-monogram { animation: none; }
   .section-flower-item--sway .section-flower-inner { animation: none; }

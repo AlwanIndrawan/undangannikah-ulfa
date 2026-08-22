@@ -13,6 +13,10 @@ export const WEDDING = {
   gelar1: "S.Ip",
   gelar2: "S.Tr.Pt",
 
+  // Tulisan aksara Lontara di paling atas beranda (isi karakter Unicode
+  // Lontara; biarkan kosong "" jika tidak ingin ditampilkan)
+  lontara: "ᨄᨘᨈ ᨑᨗᨈ",
+
   ayah1: "Mansur Masang. Dg. Naro",
   ibu1:  "Marwiah",
 

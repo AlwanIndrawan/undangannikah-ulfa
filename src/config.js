@@ -49,7 +49,7 @@ export const WEDDING = {
   mapsUrl: "https://maps.app.goo.gl/7h9JFSFpyPHz3pKB7",
 
   // Embed peta untuk card lokasi (t=k = mode satelit)
-  mapsEmbed: "https://maps.google.com/maps?q=-5.2248502,119.8713817(Villa%20AJAKS)&hl=id&z=16&t=k&output=embed",
+  mapsEmbed: "https://maps.google.com/maps?q=-5.4520328,119.8035529(Dusun%20Mampua%2C%20Desa%20Datara)&hl=id&z=16&t=k&output=embed",
 
   batasRsvp: "17 September 2026",
 

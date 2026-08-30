@@ -229,13 +229,6 @@ section > *:not(.section-flowers),
   max-width: none;
 }
 
-/* Badik bertebaran — kumpul di sekitar tengah section.
-   Di layar ponsel diperkecil via properti `scale` (terpisah dari transform
-   rotate inline sehingga tidak saling menimpa). */
-@media (max-width: 600px) {
-  .badik-scatter { scale: 0.75; }
-}
-
 .section-flower-item--float .section-flower-inner,
 .section-flower-item--float {
   animation: float 6s ease-in-out infinite;

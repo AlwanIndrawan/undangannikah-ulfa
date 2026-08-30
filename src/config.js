@@ -96,13 +96,8 @@ export const MEMPELAI = [
 
 export const PENGUNDANG = {
   utama: "Mansur Masang. Dg. Naro & Marwiah",
-  turut: [{ nama: "Dr. Azis Masang, S.Ag., M.Si.", keterangan: "Dg. Naba & Ny." },
-    { nama: "Hartono Hamzah, S.Pd., Gr", keterangan: "& Ny." },
-    { nama: "Muhammad Nur, S.H", keterangan: "" },
-    { nama: "Muh. Saleh", keterangan: "& Ny." },
-    { nama: "Mansur Masang Dg. Naro", keterangan: "& Ny." },
-    { nama: "Amri, S.H.I., S.Pd.I", keterangan: "& Ny." },
-    { nama: "Ismail Hamzah", keterangan: "& Ny." },
+  turut: [{ nama: "Keluarga besar Alm. H. Masang & Alm. Samsiah", keterangan: "" },
+    { nama: "Keluarga Besar Abd. salam & Manti", keterangan: "" },
     { nama: "Kedua Mempelai", keterangan: "" },
   ],
 };
@@ -113,14 +108,14 @@ export const PENGUNDANG = {
 
 export const BANKS = [
   {
-    bank:  "BCA",
-    norek: "7970592100",
-    atas:  "SULFANA",
+    bank:  "Mandiri",
+    norek: "1740010508927",
+    atas:  "NURUL FADILAH",
   },
     {
-    bank:  "DANA",
-    norek: "081340727775",
-    atas:  "SULFANA",
+    bank:  "Gopay",
+    norek: "085213047721",
+    atas:  "Nurul fadilah",
   },
 ];
 
@@ -194,6 +189,6 @@ export const GUESTBOOK_URL = "https://script.google.com/macros/s/AKfycbz-fIm1sRU
 // ============================================================
 
 export const MUSIC = {
-  src:     "/music/background.mp3",
+  src:     "/music/backsound.mp3",
   enabled: true,
 };

@@ -55,6 +55,16 @@ export const WEDDING = {
   // Embed peta untuk card lokasi (t=k = mode satelit)
   mapsEmbed: "https://maps.google.com/maps?q=-5.4520328,119.8035529(Dusun%20Mampua%2C%20Desa%20Datara)&hl=id&z=16&t=k&output=embed",
 
+  // Resepsi kedua — Villa AJAKS (kediaman mempelai pria)
+  resepsi2: {
+    tanggal: "Minggu, 20 September 2026",
+    waktu:   "10:00 WITA – selesai",
+    venue:   "Villa AJAKS, Gallang Rapa",
+    alamat:  "Kel. Gantarang, Kec. Tinggimoncong, Kab. Gowa, Sulawesi Selatan",
+  },
+  mapsUrl2:   "https://maps.app.goo.gl/7Ak8NoU8CLwLE15RA",
+  mapsEmbed2: "https://maps.google.com/maps?q=-5.2248502,119.8713817(Villa%20AJAKS)&hl=id&z=16&t=k&output=embed",
+
   batasRsvp: "17 September 2026",
 
   namaUndangan: "Bapak/Ibu/Saudara(i)",

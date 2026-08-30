@@ -480,6 +480,29 @@ function App() {
             </a>
           </div>
         </Reveal>
+
+        {/* Resepsi kedua — Villa AJAKS (kediaman mempelai pria) */}
+        <Reveal anim="up" delay="400ms" style={{ width: '100%' }}>
+          <h3 className="resepsi2-title">Resepsi Pernikahan — Mempelai Pria</h3>
+          <p className="resepsi2-meta">{WEDDING.resepsi2.tanggal} · {WEDDING.resepsi2.waktu}</p>
+          <div className="location-card location-card--extra">
+            <div className="location-map">
+              <iframe
+                src={WEDDING.mapsEmbed2}
+                title="Peta Resepsi Villa AJAKS"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <p className="location-name">{WEDDING.resepsi2.venue}</p>
+            <p className="location-detail">{WEDDING.resepsi2.alamat}</p>
+            <a href={WEDDING.mapsUrl2} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-block', marginTop: 14 }}>
+              <button className="btn-outline">Buka Peta ↗</button>
+            </a>
+          </div>
+        </Reveal>
       </section>
 
       {/* ══════════════ KISAH CINTA ══════════════════════════ */}
